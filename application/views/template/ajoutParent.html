@@ -1,30 +1,33 @@
-<div>
-    <div id="groupeNomParent">
-        <label for="nom">Nom <em>*</em>:</label>
-        <input type="text" placeholder="Nom" id="nom" name="generator"/>
-    </div>
-    <br/>
-
-    <div id="groupePrenomParent">
-        <label for="prenom">Prénom <em>*</em>:</label>
-        <input type="text" placeholder="Prénom" id="prenom" name="generator"/>
-    </div>
-    <br/>
-
-    <div id="groupeMailParent">
-        <label for="mail">Adresse mail <em>*</em>:</label>
-        <input type="email" placeholder="exemple@exemple.com" id="mail" name="generator"/>
-    </div>
-    <br/>
-
-    <div id="groupeVilleParent">
-        <label for="ville">Ville <em>*</em>:</label>
-        <select id="ville" name="generator">
-            <option>Belfort</option>
-            <option>Montbéliard</option>
-            <option>Strasbourg</option>
-        </select>
-    </div>
-    <button onclick="supprimerElement(this);" type="button">Supprimer</button>
-    <script type="text/javascript"> changeName("new"); </script>
+<div id="groupeNomParent">
+    <label for="nom">Nom <em>*</em>:</label>
+    <input type="text" placeholder="Nom" id="nom" name="generator" required/>
 </div>
+<br/>
+
+<div id="groupePrenomParent">
+    <label for="prenom">Prénom <em>*</em>:</label>
+    <input type="text" placeholder="Prénom" id="prenom" name="generator" required/>
+</div>
+<br/>
+
+<div id="groupeMailParent">
+    <label for="mail">Adresse mail <em>*</em>:</label>
+    <input type="email" placeholder="exemple@exemple.com" id="mail" name="generator" required/>
+</div>
+<br/>
+
+<!--<div id="groupeRangParent">-->
+    <!--<label for="rang">Rang <em>*</em>:</label>-->
+    <!--<input type="number" id="rang" name="generator"/>-->
+<!--</div>-->
+
+<div id="groupeVilleParent">
+    <label for="ville">Ville <em>*</em>:</label>
+    <select id="ville" name="generator">
+        <option value="1">Belfort</option>
+        <option>Montbéliard</option>
+        <option>Strasbourg</option>
+    </select>
+</div>
+<button onclick="supprimerElement(this);" type="button">Supprimer</button>
+<script type="text/javascript"> changeName("new"); </script>

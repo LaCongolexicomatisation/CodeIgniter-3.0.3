@@ -3,7 +3,7 @@
 <main>
     <h2>Ajout d'un enfant</h2>
 
-    <form action="test.php" method="post" id="ajEnfant">
+    <form method="post" id="ajEnfant">
         <p><i>Les champs marqu&eacutes par </i><em>*</em> sont <em>obligatoires</em> !</p>
         <fieldset>
             <legend>Information de l'enfant</legend>

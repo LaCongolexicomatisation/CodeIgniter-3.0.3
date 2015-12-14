@@ -18,11 +18,6 @@
                            required/>
                     <br/><span><a href="#">Mot de passe oubli&eacute ?</a></span>
                 </div>
-                <div>
-                    <?php if (isset($_SESSION['erreur'])) {
-                        print($_SESSION["erreur"]);
-                    } ?>
-                </div>
                 <div id="dSubmit">
                     <input type="submit" value="Se connecter"/>
                 </div>

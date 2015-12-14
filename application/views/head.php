@@ -15,8 +15,8 @@
         <ul>
             <li><a href="<?=base_url(); ?>">Accueil</a></li>
             <?php
-            if(isset($_SESSION["login"]) && isset($_SESSION['rang'])){
-                if($_SESSION['rang']!=0) {
+            if(isset($_SESSION["user"]["login"]) && isset($_SESSION["user"]["rang"])){
+                if($_SESSION["user"]["rang"]!=0) {
                     print("<li><a href='enfants.php'>Mes enfants</a></li>");
                     print("<li><a href='compte.php'>Mon compte</a></li>");
                 }
@@ -35,3 +35,12 @@
         </ul>
     </nav>
 </header>
+<?php
+        if(isset($_SESSION['messagee'])){
+            print("<div id='messageError'>".$_SESSION['messagee']."</div>");
+            unset($_SESSION['messagee']);
+        }
+        if(isset($_SESSION['messages'])){
+            print("<div id='messageSuccess'>".$_SESSION['messages']."</div>");
+            unset($_SESSION['messages']);
+        }?>

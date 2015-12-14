@@ -11,6 +11,31 @@ class model_Utilisateur extends CI_Model
         require_once("Utilisateur.php");
         SELF::$_PDO = $this->load->database('pdo', true);
     }
+    
+    public static function create($nom, $prenom, $idVille, $login, $motDePasse, $mail, $rang = 1){
+        $requete = "insert into adulte (nom, prenom, idVille, login, motDePasse, adresseMail, rang) values"
+                . " ( ?,?,?, ?, ?, ?, ?)";
+        $stmt = SELF::$_PDO->query($requete, array($nom, $prenom, $idVille, $login, $motDePasse, $mail, $rang));
+        return $stmt;
+    }
+    
+    public static function loginExists($l){
+        $requete = "SELECT login FROM adulte WHERE login = ?";
+        $stmt = SELF::$_PDO->query($requete, array($l));
+        
+        $exist = false;
+        
+        if($stmt->result()){
+            $exist = true;
+        }
+        return $exist;
+    }
+    
+    public static function rechercheParent(){
+        $requete = "SELECT concat(nom, concat('-', prenom)) as adulte from adulte";
+        $stmt = SELF::$_PDO->query($requete);
+        return $stmt->result_array();
+    }
 
     static function getById($id){
         $stmt = SELF::$_PDO->query("SELECT * FROM adulte WHERE idAdulteResponsable=".$id);
