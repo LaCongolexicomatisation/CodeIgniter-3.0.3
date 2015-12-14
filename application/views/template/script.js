@@ -10,6 +10,7 @@ function nouveauParent(){
 	div.appendChild(divInsertion);
 
 	$("#ajoutParent" + nbParent).load("/CodeIgniter-3.0.3/application/views/template/ajoutParent.html");
+
 	nbParent += 1;
 }
 
