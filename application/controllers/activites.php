@@ -74,6 +74,8 @@ class activites extends CI_Controller{
 
     public function gestionAgendaActivite(){
         $this->load->model("Activite");
-        $this->load->view("gestionAgendaActivite");
+        $this->load->model("Agenda");
+        $data['listAgenda']= Agenda::getAll();
+        $this->load->view("gestionAgendaActivite",$data);
     }
 }

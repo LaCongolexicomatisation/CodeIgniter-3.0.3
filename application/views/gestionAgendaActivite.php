@@ -5,29 +5,32 @@ include "head.php";
     <table id="agendaActivite">
         <thead>
         <tr>
-            <th>Nom</th>
-            <th>Description</th>
+            <th>Activite</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Jour</th>
             <th>Horaire début</th>
             <th>Horaire fin</th>
-            <th>jour</th>
             <th colspan="2">Options</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        foreach($listAgenda as $act){
+        foreach($listAgenda as $agenda){
             ?>
             <tr>
-                <td><?=$act->nom();?></td>
-                <td><?=$act->description();?></td>
-                <td><?=Theme::getNomById($act->idTheme());?></td>
-                <td><a href="<?=base_url(); ?>index.php/activites/modifierActivite?id=<?=$act->idActivite();?>&action=modif"><img src="<?=base_url(); ?>assets/img/edit.png" alt="modif" name="modif"/></a>
-                    <a href="javascript:supprimerActivite(<?= $act->idActivite();?>,'<?=$act->nom(); ?>','<?=base_url()?>')"><img src="<?=base_url(); ?>assets/img/remove.png" alt="delete" name="delete"/></a></td>
+                <td><?=$agenda->idActivite();?></td>
+                <td><?=$agenda->dateDebutActivite();?></td>
+                <td><?=$agenda->dateFinActivite();?></td>
+                <td><?=$agenda->jour();?></td>
+                <td><?=$agenda->horaireDebutActivite();?></td>
+                <td><?=$agenda->horaireFinActivite();?></td>
+                <td><a href="<?=base_url(); ?>index.php/activites/modifierActivite?id=<?=$agenda->idActivite();?>&action=modif"><img src="<?=base_url(); ?>assets/img/edit.png" alt="modif" name="modif"/></a>
+                    <a href="javascript:"><img src="<?=base_url(); ?>assets/img/remove.png" alt="delete" name="delete"/></a></td>
             </tr>
             <?php
         }
         ?>
         </tbody>
     </table>
-    <a id="btLien" href="<?=base_url(); ?>index.php/activites/ajoutActivite">Créer une activitée</a>
 </div>
