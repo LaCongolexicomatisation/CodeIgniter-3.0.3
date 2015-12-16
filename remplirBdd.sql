@@ -22,8 +22,8 @@ VALUES ("Diabolo","Apprentisage du diabolo",1);
 insert into tarifs(idActivite,tarifs)
 VALUES (1,15);
 
-insert into agenda (idActivite,dateDebutActivite,dateFinActivite,jour)
-VALUES (1,'2015-11-23 00:00:01','2015-12-23 23:59:59',1);
+insert into agenda (idActivite,dateDebutActivite,dateFinActivite,jour,horaireDebutActivite,horaireFinActivite)
+VALUES (1,'2015-11-23 00:00:01','2015-12-23 23:59:59',1,'17:00:00','18:00:00');
 
 insert into inscription(idEnfant,idActivite,dateDebutInscription,dateFinInscription,valideInscription)
 VALUES (1,1,'2015-11-23 08:00:00','215-11-23 09:00:00',true);
