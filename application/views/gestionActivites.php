@@ -19,7 +19,7 @@ include "head.php";
             <tr>
                 <td><?=$act->nom();?></td>
                 <td><?=$act->description();?></td>
-                <td><?=model_Theme::getNomById($act->idTheme());?></td>
+                <td><?=Theme::getNomById($act->idTheme());?></td>
                 <td><a href="<?=base_url(); ?>index.php/activites/modifierActivite?id=<?=$act->idActivite();?>&action=modif"><img src="<?=base_url(); ?>assets/img/edit.png" alt="modif" name="modif"/></a>
                     <a href="javascript:supprimerActivite(<?= $act->idActivite();?>,'<?=$act->nom(); ?>','<?=base_url()?>')"><img src="<?=base_url(); ?>assets/img/remove.png" alt="delete" name="delete"/></a></td>
             </tr>

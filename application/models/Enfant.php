@@ -1,16 +1,18 @@
 <?php
 
-class Enfant {
+class Enfant extends CI_Model{
     protected $_id;
     protected $_nom;
     protected $_prenom;
     protected $_ddn;
+    protected static $_PDO;
     
     public function __construct($id = NULL, $nom = "", $prenom = "", $ddn = ""){
         $this->set_id($id);
         $this->set_nom($nom);
         $this->set_prenom($prenom);
         $this->set_ddn($ddn);
+        $this->_PDO = $this->load->database('pdo', true);
     }
     
     function id() {
@@ -45,5 +47,8 @@ class Enfant {
         $this->_ddn = $_ddn;
     }
 
-
+    public static function create($nom,$prenom,$ddn){
+        $stmt = SELF::$_PDO->query("insert into enfant (nomEnfant, prenomEnfant, dateDeNaissance) values ('".$nom."','".$prenom."',STR_TO_DATE('".$ddn."', '%Y-%m-%d'))");
+        return $stmt;
+    }
 }

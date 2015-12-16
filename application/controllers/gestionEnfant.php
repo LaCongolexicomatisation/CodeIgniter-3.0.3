@@ -11,7 +11,7 @@ class gestionEnfant extends CI_Controller
 
     public function ajoutEnfant()
     {
-        $this->load->model("model_Enfant");
+        $this->load->model("Enfant");
         switch($_SERVER['REQUEST_METHOD']){
             case 'GET':
                 if(isset($_SESSION['user'])){
@@ -43,7 +43,6 @@ class gestionEnfant extends CI_Controller
     
     private function insertion(){
         $this->load->model("Utilisateur");
-        $this->load->model("model_Utilisateur");
         $u = new Utilisateur();
         $presenceAdulte = false;
         $isOk = true;
@@ -93,7 +92,7 @@ class gestionEnfant extends CI_Controller
                 $_SESSION['messagee'] = "Erreur lors de la création d'un adulte";
             }
         }
-        $insertionEnfant = model_Enfant::create($enfant->nom(), $enfant->prenom(), $enfant->ddn());
+        $insertionEnfant = Enfant::create($enfant->nom(), $enfant->prenom(), $enfant->ddn());
         
         if($insertionEnfant === false || $insertionParent === false){
             $isOk = false;
@@ -106,13 +105,13 @@ class gestionEnfant extends CI_Controller
         $suffixeLogin = 1;
         $l = $login;
         do{
-            if(model_Utilisateur::loginExists($l)){
+            if(Utilisateur::loginExists($l)){
                 $l = $login . $suffixeLogin;
                 $suffixeLogin+=1;
             }else
                 $ok = true;
         }while(!$ok);
-        $insertionParent = model_Utilisateur::create($u->nom(), $u->prenom(), intVal($u->idVille()), $l, $l, $u->mail());   
+        $insertionParent = Utilisateur::create($u->nom(), $u->prenom(), intVal($u->idVille()), $l, $l, $u->mail());
         
         return $insertionParent;
     }
@@ -120,7 +119,7 @@ class gestionEnfant extends CI_Controller
     public function rechercheParent(){
         if(isset($_POST["autorisation"]) && $_POST["autorisation"] === "1"){
             $this->load->model("model_Utilisateur");
-            $adultes = model_Utilisateur::rechercheParent();
+            $adultes = Utilisateur::rechercheParent();
 
             $resultat = "";
             foreach ($adultes as $key => $value) {
