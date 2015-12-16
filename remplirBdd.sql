@@ -4,8 +4,14 @@ values("Belfort",90000);
 insert into adulte(nom,prenom,login,motDePasse,adresseMail,idVille,rang)
 VALUES ("admin","admin","admin","admin","adresse@hotmail.fr",1,0);
 
-insert into enfant (nomEnfant,prenomEnfant,dateDeNaissance)
-VALUES ("nomEnfant","prenomEnfant",'1995-06-19');
+insert into niveau(niveau)
+VALUES("CP"),("CE1");
+
+insert into classe(nom,professeur,idNiveau)
+VALUES ("CP1","Deshinkel",1);
+
+insert into enfant (nomEnfant,prenomEnfant,dateDeNaissance,idClasse)
+VALUES ("nomEnfant","prenomEnfant",'1995-06-19',1);
 
 insert into theme (nomTheme)
 values ("Cirque");

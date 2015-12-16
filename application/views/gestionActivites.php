@@ -1,7 +1,6 @@
 <?php
 include "head.php";
 ?>
-<body>
 <div class="tableform">
     <table id="activite">
         <thead>
@@ -30,6 +29,5 @@ include "head.php";
     </table>
     <a id="btLien" href="<?=base_url(); ?>index.php/activites/ajoutActivite">Créer une activitée</a>
 </div>
-</body>
 
 

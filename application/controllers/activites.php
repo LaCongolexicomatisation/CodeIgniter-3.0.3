@@ -71,4 +71,9 @@ class activites extends CI_Controller{
         $this->load->model("Activite");
         Activite::delete($_POST['idSuppActivite']);
     }
+
+    public function gestionAgendaActivite(){
+        $this->load->model("Activite");
+        $this->load->view("gestionAgendaActivite");
+    }
 }
