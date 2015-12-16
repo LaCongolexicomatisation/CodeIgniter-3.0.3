@@ -12,7 +12,7 @@ class Enfant extends CI_Model{
         $this->set_nom($nom);
         $this->set_prenom($prenom);
         $this->set_ddn($ddn);
-        $this->_PDO = $this->load->database('pdo', true);
+        SELF::$_PDO = $this->load->database('pdo', true);
     }
     
     function id() {
