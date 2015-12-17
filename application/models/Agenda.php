@@ -10,7 +10,7 @@ class Agenda extends CI_Model
     protected $_horaireFinActivite;
     protected static $_PDO;
 
-    public function __construct($idAgenda=null,$idActivite=null,$dateDebutActivite="",$dateFinActivite="",$jour=null,$horaireDebutActivite="",$horaireFinActivite=""){
+    public function __construct($idActivite=null,$dateDebutActivite="",$dateFinActivite="",$jour=null,$horaireDebutActivite="",$horaireFinActivite="", $idAgenda=null){
         $this->_idAgenda=$idAgenda;
         $this->_idActivite=$idActivite;
         $this->_dateDebutActivite=$dateDebutActivite;
@@ -22,7 +22,7 @@ class Agenda extends CI_Model
     }
 
     public function idActivite(){
-        return $this->_idActivite;
+        return intval($this->_idActivite);
     }
     public function dateDebutActivite(){
         return $this->_dateDebutActivite;
@@ -39,7 +39,18 @@ class Agenda extends CI_Model
     public function horaireFinActivite(){
         return $this->_horaireFinActivite;
     }
-
+    
+    public function create(){
+        $requete = "insert into agenda (idActivite, dateDebutActivite, dateFinActivite, jour, horaireDebutActivite, horaireFinActivite) "
+                . "values (?, ?, ?, ?, ?, ?)";
+        $stmt = SELF::$_PDO->query($requete, array($this->idActivite(),
+                                                    $this->dateDebutActivite(),
+                                                    $this->dateFinActivite(),
+                                                    $this->jour(),
+                                                    $this->horaireDebutActivite(),
+                                                    $this->horaireFinActivite()));
+        return $stmt;
+    }
 
     public static function getAll(){
         $stmt = SELF::$_PDO->query("SELECT * FROM agenda");

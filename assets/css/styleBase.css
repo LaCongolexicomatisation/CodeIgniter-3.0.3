@@ -388,3 +388,18 @@ table {
         font-size: 14px;
     }
 }
+
+.hrefAgenda{
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+
+#agendaActivite thead tr th{
+    border : 1px solid black;
+    padding: 10px;
+}
+
+#agendaActivite tbody tr td, #agendaActivite tbody tr th{
+    border : 1px solid black;
+}
