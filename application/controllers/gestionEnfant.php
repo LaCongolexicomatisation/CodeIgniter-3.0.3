@@ -26,14 +26,14 @@ class gestionEnfant extends CI_Controller
                 if(isset($_POST) && isset($_POST["nomEnfant"]) && isset($_POST["prenomEnfant"]) && isset($_POST["ddnEnfant"])){
                     $ok = $this->insertion();
                     if($ok)
-                        $_SESSION['messages'] = "Création réussie";
+                        $_SESSION['messages'] = "CrÃ©ation rÃ©ussie";
                     else
-                        $_SESSION['messagee'] = "Échec de la création";
+                        $_SESSION['messagee'] = "Ã‰chec de la crÃ©ation";
                     
                     header('Location: '.base_url().'index.php/gestionEnfant/ajoutEnfant');
                     exit();
                 }else{
-                    $_SESSION['messagee'] = "Erreur d'accès à la page demandée";
+                    $_SESSION['messagee'] = "Erreur d'accÃ¨s Ã  la page demandÃ©e";
                     header('Location: ' . base_url());  
                     exit();
                 }
@@ -89,7 +89,7 @@ class gestionEnfant extends CI_Controller
         if($presenceAdulte){
             $login = strtolower(substr($u->prenom(), 0, 1).$u->nom());
             if($this->insertionAdulte($login, $u) == false){
-                $_SESSION['messagee'] = "Erreur lors de la création d'un adulte";
+                $_SESSION['messagee'] = "Erreur lors de la crÃ©ation d'un adulte";
             }
         }
         $insertionEnfant = Enfant::create($enfant->nom(), $enfant->prenom(), $enfant->ddn());
@@ -118,7 +118,7 @@ class gestionEnfant extends CI_Controller
     
     public function rechercheParent(){
         if(isset($_POST["autorisation"]) && $_POST["autorisation"] === "1"){
-            $this->load->model("model_Utilisateur");
+            $this->load->model("Utilisateur");
             $adultes = Utilisateur::rechercheParent();
 
             $resultat = "";
@@ -127,7 +127,7 @@ class gestionEnfant extends CI_Controller
             }
             echo substr($resultat, 0, strlen($resultat) - 1);
         }else{
-            $_SESSION["messagee"] = "Erreur accès refusé";
+            $_SESSION["messagee"] = "Erreur accÃ¨s refusÃ©";
             header('Location: ' . base_url());
             exit();
         }
