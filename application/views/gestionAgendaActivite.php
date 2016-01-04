@@ -5,7 +5,7 @@ include "head.php";
     <?php 
    foreach($semaines as $numSemaine => $joursSemaine){ ?>
     <table id="agendaActivite">
-        <caption>Semaine n°<?= $numSemaine ?></caption>
+        <caption>Semaine nÂ°<?= $numSemaine ?></caption>
         <thead>
             <tr>
                 <th>Horaire</th>
