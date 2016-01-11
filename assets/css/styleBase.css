@@ -20,6 +20,7 @@ header {
 
 h1 {
     font-variant: small-caps;
+    color: lightskyblue;
 }
 
 main {
@@ -28,7 +29,7 @@ main {
 
 /*MENU*/
 nav {
-    background-color: rgba(46, 255, 45, 0.18);
+    background-color: lightskyblue;
 }
 
 #img {
@@ -56,11 +57,11 @@ nav ul li {
 li a {
     display: block;
     text-decoration: none;
-    color: #1E90FF;
+    color: #FFFFFF;
 }
 
 li a:hover {
-    background-color: #FFFFFF;
+    background-color: #1d4bab;
 }
 
 /*FORMULAIRE*/
