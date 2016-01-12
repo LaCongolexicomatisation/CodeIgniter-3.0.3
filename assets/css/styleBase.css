@@ -342,7 +342,21 @@ h2 {
 table {
     border-collapse: collapse;
 }
-
+.tableGestionActiviteIndex {
+    width: 60%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.tableGestionActiviteIndex thead {
+    font-weight: bold;
+}
+.tableGestionActiviteIndex td {
+    padding: auto;
+    border: solid black 1px;
+}
+.GestionActiviteIndex{
+    margin-top: 20px;
+}
 /**********************************/
 /**********CSS RESPONSIVE**********/
 /**********************************/
