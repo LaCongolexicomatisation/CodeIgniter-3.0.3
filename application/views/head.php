@@ -9,8 +9,7 @@
 </head>
 <body>
 <header>
-    <img src="<?=base_url(); ?>/assets/img/banderole_1.jpg" id="img" />
-    <h1>Centre périscolaire de Dasle</h1>
+    <img src="<?=base_url(); ?>/assets/img/banderole_3.jpg" id="img" />
     <nav>
         <ul>
             <li><a href="<?=base_url(); ?>">Accueil</a></li>
