@@ -1,13 +1,13 @@
 <?php include'head.php'?>
 <main role="main">
     <h2>Les enfants</h2>
-    <table>
-        <tr>
+    <table class="tableformEnfants">
+        <thead>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Groupe</th>
             <th>Informations</th>
-        </tr>
+        </thead>
         <tr>
             <td>Heinrich</td>
             <td>Schmidt</td>

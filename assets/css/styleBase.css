@@ -216,9 +216,11 @@ a.btLien {
     padding: 10px;
     border-radius: 5px;
     font-weight: bold;
-    background-color: #00ab00;
+    background-color: rgb(69,192,234);
 }
-
+a.btLien:hover{
+    background-color: rgb(32,127,183);
+}
 a#btAjEnfant:hover {
     background-color: #1717dd;
 }
@@ -256,7 +258,13 @@ footer ul li {
 footer a {
     margin: 0 10px;
 }
-
+aside{
+    display: block;
+    float: right;
+    width: 100px;
+    border: solid 2px rgb(69,192,234);
+    padding: 10px;
+}
 /**************/
 /*INTERFACES*/
 /***********/
@@ -350,6 +358,7 @@ footer a {
 
 h2 {
     text-align: center;
+    color:rgb(26,103,150);
 }
 
 table {
@@ -386,7 +395,18 @@ table {
     border: solid 1px black;
     padding: 5px;
 }
-
+.tableformEnfants{
+    text-align: center;
+    border: solid 1px black;
+}
+.tableformEnfants thead{
+    background-color: rgb(242,242,242);
+    color: rgb(32,127,183);
+}
+.tableformEnfants td,th{
+    border: solid 1px black;
+    padding: 5px;
+}
 /**********************************/
 /**********CSS RESPONSIVE**********/
 /**********************************/
