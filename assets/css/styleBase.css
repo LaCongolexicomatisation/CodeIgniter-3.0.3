@@ -60,7 +60,7 @@ li a {
     color: #FFFFFF;
 }
 
-li a:hover {
+nav ul li a:hover {
     background-color: rgb(32,127,183);
 }
 
@@ -103,7 +103,20 @@ fieldset p {
     margin: 10px;
     padding: 5px;
 }
-
+.fieldset-moyen{
+    width: 300px;
+    display: block;
+    margin: 10px auto;
+    text-align: left;
+}
+.fieldset-grand{
+    width: 600px;
+    display: block;
+    margin: 10px auto;
+}
+.fieldset-grand input, select, button{
+    margin-top: 10px;
+}
 em {
     color: #f00;
     font-weight: bold;
@@ -346,6 +359,7 @@ table {
     width: 60%;
     margin-bottom: 10px;
     text-align: center;
+
 }
 .tableGestionActiviteIndex thead {
     font-weight: bold;
@@ -357,6 +371,22 @@ table {
 .GestionActiviteIndex{
     margin-top: 20px;
 }
+.tableform{
+    margin: 30px;
+}
+.tableformActivite{
+    text-align: center;
+    border: solid 1px black;
+}
+.tableformActivite thead {
+    background-color: rgb(242,242,242);
+    color: rgb(32,127,183);
+}
+.tableformActivite td, th {
+    border: solid 1px black;
+    padding: 5px;
+}
+
 /**********************************/
 /**********CSS RESPONSIVE**********/
 /**********************************/

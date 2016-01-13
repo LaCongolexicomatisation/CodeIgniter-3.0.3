@@ -3,7 +3,7 @@
     <div class="formGestionActivite">
         <form action="" method="post">
             <p><i>Les champs marqu&eacutes par </i><em>*</em> sont <em>obligatoires</em> !</p>
-            <fieldset>
+            <fieldset class="fieldset-grand">
                 <legend>Ajouter activité</legend>
                 <div>
                     <label for="nomActivite">Nom de l'activité<em>*</em>:</label>
@@ -35,5 +35,10 @@
                 </div>
             </fieldset>
         </form>
+        <fieldset class="fieldset-moyen">
+            <legend>Information</legend>
+            Si votre thème n'existe pas dans la liste, choisissez "non existant" puis entrez le nom du nouveau thème dans "nom du thème".<br><br>
+            Si votre thème existe, vous n'avez pas besoin de renseigner "nom du thème".
+        </fieldset>
     </div>
 </main>

@@ -2,7 +2,7 @@
 include "head.php";
 ?>
 <div class="tableform">
-    <table id="activite">
+    <table class="tableformActivite">
         <thead>
         <tr>
             <th>Nom</th>
@@ -27,7 +27,14 @@ include "head.php";
         ?>
         </tbody>
     </table>
-    <a id="btLien" href="<?=base_url(); ?>index.php/activites/ajoutActivite">Créer une activitée</a>
+        <fieldset class="fieldset-moyen">
+            <legend>Créer une activité</legend>
+            Si une activité n'est pas encore présente dans ce tableau, vous pouvez la créer ici :<br><br>
+            <a id="btLien" href="<?=base_url(); ?>index.php/activites/ajoutActivite">Créer une activité</a>
+        </fieldset>
+
+
+
 </div>
 
 
