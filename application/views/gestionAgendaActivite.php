@@ -1,6 +1,12 @@
 <?php
 include "head.php";
 ?>
+<h2>Gestion de l'agenda des activités</h2>
+<fieldset class="fieldset-grand">
+    <legend>Instructions</legend>
+    - Pour ajouter une activité à l'agenda et ainsi la proposer à l'inscription, cliquez sur le "+" à l'endroit où vous souhaitez ajouter l'activité.<br>
+    - Pour supprimer une activité à l'inscription ...
+</fieldset>
 <div class="tableform">
     <?php 
    foreach($semaines as $numSemaine => $joursSemaine){ ?>
