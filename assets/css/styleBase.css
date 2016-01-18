@@ -16,6 +16,7 @@ body {
 
 header {
     text-align: center;
+    background-color: rgb(242,242,242);
 }
 
 h1 {
@@ -461,7 +462,16 @@ table {
     padding: 10px;
     text-align: center;
 }
-
+#agendaActivite {
+    margin-bottom: 15px;
+}
+#agendaActivite caption {
+    background-color: rgb(242,242,242);
+    color: rgb(32,127,183);
+    border-top: solid 2px grey;
+    border-left: solid 2px grey;
+    border-right: solid 2px grey;
+}
 #agendaActivite thead tr th{
     border : 1px solid black;
     padding: 10px;
@@ -469,4 +479,8 @@ table {
 
 #agendaActivite tbody tr td, #agendaActivite tbody tr th{
     border : 1px solid black;
+}
+#agendaActivite tbody td a{
+    color: rgb(32,127,183);
+    font-weight: bold;
 }

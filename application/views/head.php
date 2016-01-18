@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>
-    <img src="<?=base_url(); ?>/assets/img/banderole_3.jpg" id="img" />
+    <img src="<?=base_url(); ?>/assets/img/banderole_1.png" id="img" />
     <nav>
         <ul>
             <li><a href="<?=base_url(); ?>">Accueil</a></li>
