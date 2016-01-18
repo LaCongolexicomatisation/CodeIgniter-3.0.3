@@ -1,6 +1,15 @@
 <?php
 include "head.php";
 ?>
+<h2>Gestion des activités</h2>
+<fieldset class="fieldset-grand">
+    <legend>Informations</legend>
+    Voici la liste des activités présentes dans la base de données et pouvant être insérées dans l'agenda.<br><br>
+    Pour modifier une activité, cliquez sur le crayon dans la colonne "Options".<br><br>
+    Pour supprimer une activité, cliquez sur la croix dans la colonne "Options".<br><br>
+    Si une activité n'est pas encore présente dans ce tableau, vous pouvez la créer ici :<br>
+    <a id="btLien" href="<?=base_url(); ?>index.php/activites/ajoutActivite">Créer une activité</a>
+</fieldset>
 <div class="tableform">
     <table class="tableformActivite">
         <thead>
@@ -27,14 +36,6 @@ include "head.php";
         ?>
         </tbody>
     </table>
-        <fieldset class="fieldset-moyen">
-            <legend>Créer une activité</legend>
-            Si une activité n'est pas encore présente dans ce tableau, vous pouvez la créer ici :<br><br>
-            <a id="btLien" href="<?=base_url(); ?>index.php/activites/ajoutActivite">Créer une activité</a>
-        </fieldset>
-
-
-
 </div>
 
 
