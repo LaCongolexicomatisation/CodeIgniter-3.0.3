@@ -82,7 +82,10 @@ form#ajEnfant {
     width: 70%;
     max-width: 600px;
 }
-
+form#ajActiviteAgenda{
+    width: 70%;
+    max-width: 600px;
+}
 legend {
     border-left: solid 1px #171616;
     border-right: solid 1px #171616;
