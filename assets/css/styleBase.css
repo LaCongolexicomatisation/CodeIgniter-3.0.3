@@ -20,6 +20,11 @@ header {
 }
 footer {
     margin-top: 10%;
+    color: grey;
+}
+.foot{
+    text-align: center;
+    background-color: rgb(242,242,242);
 }
 h1 {
     font-variant: small-caps;
