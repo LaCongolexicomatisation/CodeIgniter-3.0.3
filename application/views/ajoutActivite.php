@@ -23,15 +23,15 @@
                             <option value="<?= $theme->id(); ?>"><?= $theme->nom(); ?></option><?php
                         }
                         ?>
-
                     </select>
 
                     <div id="ajoutTheme">
-
                         <label for="nomTheme">Nom du thème : </label>
                         <input type="text" id="nomTheme" name="nomTheme">
                     </div>
-                    <button type="submit">Valider</button>
+                    <div id="dSubmitAj">
+                        <button type="submit">Valider</button>
+                    </div>
                 </div>
             </fieldset>
         </form>
@@ -42,3 +42,5 @@
         </fieldset>
     </div>
 </main>
+
+<?php include 'foot.php'; ?>

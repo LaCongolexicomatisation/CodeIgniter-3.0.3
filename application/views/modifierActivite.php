@@ -1,7 +1,7 @@
 <?php include "head.php";?>
 <body>
 <div class="formGestionActivite">
-    <fieldset>
+    <fieldset class="fieldset-grand">
         <legend>Ajouter activité : </legend>
         <form id="activite" method="post" name="activite" action="">
             <div>
@@ -32,4 +32,7 @@
         </form>
     </fieldset>
 </div>
-</body>
+
+
+
+<?php include 'foot.php'; ?>

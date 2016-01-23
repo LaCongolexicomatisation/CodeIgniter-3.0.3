@@ -20,7 +20,7 @@
                     print("<li><a href='compte.php'>Mon compte</a></li>");
                 }
                 else{
-                    print("<li><a href='enfants.php'>Gestion Parents</a></li>");
+                    print("<li><a href='#'>Gestion Parents</a></li>");
                     print("<li><a href='".base_url()."index.php/gestionEnfant'>Gestion Enfants</a></li>");
                     print("<li><a href='".base_url()."index.php/activites'>Gestion Activité</a></li>");
                 }

@@ -44,3 +44,6 @@ include "head.php";
     </table>
     <?php } ?>
 </div>
+
+
+<?php include 'foot.php'; ?>

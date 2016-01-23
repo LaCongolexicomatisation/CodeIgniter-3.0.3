@@ -25,3 +25,5 @@
         </fieldset>
     </form>
 </main>
+
+<?php include 'foot.php'; ?>

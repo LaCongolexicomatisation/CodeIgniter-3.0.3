@@ -21,10 +21,11 @@
                 <input type="hidden" value="<?= $hidden ?>"name="dateDebut" />
             </div>
                 <br />
-            <div>
+            <div id="dSubmitAj">
                 <input type="submit" value="Ajout de l'activité"/>
             </div>
         </fieldset>
     </form>
 </main>
-</body>
+
+<?php include 'foot.php'; ?>

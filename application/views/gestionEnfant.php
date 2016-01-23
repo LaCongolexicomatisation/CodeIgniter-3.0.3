@@ -23,3 +23,6 @@
     </table>
     <a class="btLien" href="<?= base_url()?>index.php/gestionEnfant/ajoutEnfant">Ajouter un enfant</a>
 </main>
+
+
+<?php include 'foot.php'; ?>

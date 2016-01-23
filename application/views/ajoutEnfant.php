@@ -34,8 +34,10 @@
             Sinon, veuillez le créer d'abord :<br>
             <a href="javascript:nouveauParent()">Ajouter un nouveau parent</a>
         </fieldset>
-        <div id="dSubmitAjEnf">
+        <div id="dSubmitAj">
             <input type="submit" value="Ajout d'un enfant"/>
         </div>
     </form>
 </main>
+
+<?php include 'foot.php'; ?>

@@ -39,3 +39,5 @@ include "head.php";
 </div>
 
 
+<?php include 'foot.php'; ?>
+

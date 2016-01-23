@@ -15,3 +15,6 @@
     </tbody>
 </table>
 </div>
+
+
+<?php include 'foot.php'; ?>
