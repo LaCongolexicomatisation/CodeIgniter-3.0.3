@@ -8,6 +8,7 @@ class parentClient extends CI_Controller
         $data['user']['nom'] = $user->nom();
         $data['user']['prenom'] = $user->prenom();
         $data['user']['adresseMail'] = $user->mail();
+        $data['user']['telephone'] = $user->telephone();
         $data['user']['ville'] = $user->getVille($user->idVille());
         $this->load->view('informationsParent',$data);
     }
@@ -16,8 +17,12 @@ class parentClient extends CI_Controller
         $this->load->model("Activite");
         $this->load->model("Enfant");
 
+        $data['nomEnfant'] = "";
+        $data['prenomEnfant'] = "";
+        $this->load->helper("Date_helper");
+        $semaines = week2period(date("Y"), date("W"));
+        $data['semaines'] = $semaines;
 
-
-        $this->load->view('inscriptionActivite');
+        $this->load->view('inscriptionActivite',$data);
     }
 }
