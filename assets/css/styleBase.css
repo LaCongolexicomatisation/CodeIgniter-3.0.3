@@ -399,31 +399,19 @@ table {
 }
 .tableform{
     margin: 30px;
-}
-.tableformActivite{
     text-align: center;
     border: solid 1px black;
 }
-.tableformActivite thead {
+.tableform thead{
     background-color: rgb(242,242,242);
     color: rgb(32,127,183);
 }
-.tableformActivite td, th {
+
+.tableform td, th {
     border: solid 1px black;
     padding: 5px;
 }
-.tableformEnfants{
-    text-align: center;
-    border: solid 1px black;
-}
-.tableformEnfants thead{
-    background-color: rgb(242,242,242);
-    color: rgb(32,127,183);
-}
-.tableformEnfants td,th{
-    border: solid 1px black;
-    padding: 5px;
-}
+
 /**********************************/
 /**********CSS RESPONSIVE**********/
 /**********************************/

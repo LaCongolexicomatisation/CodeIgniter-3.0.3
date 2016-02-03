@@ -118,8 +118,9 @@ class Utilisateur extends CI_Model
         $this->_telephone = $telephone;
     }
 
-    public static function create($nom, $prenom, $idVille, $login, $motDePasse, $mail, $telephone, $rang = 1)
+    public static function create($nom, $prenom, $idVille, $login, $motDePasse, $mail, $telephone)
     {
+        $rang = 1;
         $requete = "INSERT INTO adulte (nom, prenom, idVille, login, motDePasse, adresseMail, telephone, rang) VALUES"
             . " ( ?,?,?, ?, ?, ?, ?)";
         $stmt = SELF::$_PDO->query($requete, array($nom, $prenom, $idVille, $login, $motDePasse, $mail, $telephone, $rang));
@@ -180,6 +181,10 @@ class Utilisateur extends CI_Model
                 $data['rang']
             );
         }
+    }
+    static function getParents(){
+        $stmt = SELF::$_PDO->query("SELECT adulte.*, nomVille FROM adulte JOIN ville ON ville.idVille = adulte.idVille WHERE rang=0");
+        return $stmt->result();
     }
 
     static function getVille($id)

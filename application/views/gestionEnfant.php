@@ -1,7 +1,7 @@
 <?php include'head.php'?>
 <main role="main">
     <h2>Les enfants</h2>
-    <table class="tableformEnfants">
+    <table class="tableform">
         <thead>
             <th>Nom</th>
             <th>Prénom</th>

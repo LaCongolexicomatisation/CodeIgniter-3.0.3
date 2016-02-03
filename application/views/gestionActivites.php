@@ -11,7 +11,7 @@ include "head.php";
     <a id="btLien" href="<?=base_url(); ?>index.php/activites/ajoutActivite">Créer une activité</a>
 </fieldset>
 <div class="tableform">
-    <table class="tableformActivite">
+    <table class="tableform">
         <thead>
         <tr>
             <th>Nom</th>
