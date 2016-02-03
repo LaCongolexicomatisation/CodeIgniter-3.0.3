@@ -148,6 +148,7 @@ class Utilisateur extends CI_Model{
     }
     static function getVille($id){
         $stmt = SELF::$_PDO->query("SELECT nomVille FROM ville WHERE idVille=".$id);
-        return $stmt->result();
+        $data = $stmt->row_array();
+        return $data['nomVille'];
     }
 }
