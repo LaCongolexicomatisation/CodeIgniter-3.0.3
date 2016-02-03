@@ -6,7 +6,9 @@ class gestionEnfant extends CI_Controller
 
     public function index()
     {
-        $this->load->view('gestionEnfant');
+        $this->load->model('Enfant');
+        $data['enfants'] = Enfant::getEnfants();
+        $this->load->view('gestionEnfant',$data);
     }
 
     public function ajoutEnfant()

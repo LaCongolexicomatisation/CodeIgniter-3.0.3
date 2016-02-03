@@ -184,7 +184,7 @@ class Utilisateur extends CI_Model
     }
     static function getParents(){
         $stmt = SELF::$_PDO->query("SELECT adulte.*, nomVille FROM adulte JOIN ville ON ville.idVille = adulte.idVille WHERE rang=0");
-        return $stmt->result();
+        return $stmt;
     }
 
     static function getVille($id)

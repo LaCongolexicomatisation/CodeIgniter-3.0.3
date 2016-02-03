@@ -51,4 +51,8 @@ class Enfant extends CI_Model{
         $stmt = SELF::$_PDO->query("insert into enfant (nomEnfant, prenomEnfant, dateDeNaissance) values ('".$nom."','".$prenom."',STR_TO_DATE('".$ddn."', '%Y-%m-%d'))");
         return $stmt;
     }
+    public static function getEnfants(){
+        $stmt = SELF::$_PDO->query("SELECT * FROM enfant");
+        return $stmt;
+    }
 }

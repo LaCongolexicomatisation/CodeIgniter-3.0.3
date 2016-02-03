@@ -16,11 +16,11 @@
             <?php
             if(isset($_SESSION["user"]["login"]) && isset($_SESSION["user"]["rang"])){
                 if($_SESSION["user"]["rang"]!=0) {
-                    print("<li><a href='enfants.php'>Mes enfants</a></li>");
-                    print("<li><a href='compte.php'>Mon compte</a></li>");
+                    print("<li><a href='".base_url()."index.php/enfantClient'>Mes enfants</a></li>");
+                    print("<li><a href='".base_url()."index.php/parentClient'>Mon compte</a></li>");
                 }
                 else{
-                    print("<li><a href='#'>Gestion Parents</a></li>");
+                    print("<li><a href='".base_url()."index.php/gestionParent'>Gestion Parents</a></li>");
                     print("<li><a href='".base_url()."index.php/gestionEnfant'>Gestion Enfants</a></li>");
                     print("<li><a href='".base_url()."index.php/activites'>Gestion Activité</a></li>");
                 }
