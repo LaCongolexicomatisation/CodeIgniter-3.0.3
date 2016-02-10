@@ -14,7 +14,7 @@ class Utilisateur extends CI_Model
     protected $_telephone;
     protected $_rang;
 
-    public function __construct($idAdulteResponsable = NULL, $nom = "", $prenom = "", $idVille = NULL, $login = "", $motDePasse = "", $adresseMail = "", $telephone ="", $rang = 1)
+    public function __construct($idAdulteResponsable = NULL, $nom = "", $prenom = "", $idVille = NULL, $login = "", $motDePasse = "", $adresseMail = "", $telephone ="", $rang = NULL)
     {
         SELF::$_PDO = $this->load->database('pdo', true);
         $this->_idAdulteResponsable = $idAdulteResponsable;
@@ -160,6 +160,7 @@ class Utilisateur extends CI_Model
                 $data['login'],
                 $data['motDePasse'],
                 $data['adresseMail'],
+                $data['telephone'],
                 $data['rang']
             );
         }
@@ -178,6 +179,7 @@ class Utilisateur extends CI_Model
                 $data['login'],
                 $data['motDePasse'],
                 $data['adresseMail'],
+                $data['telephone'],
                 $data['rang']
             );
         }
