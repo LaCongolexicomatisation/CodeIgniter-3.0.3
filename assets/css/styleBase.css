@@ -399,7 +399,7 @@ table {
     margin-top: 20px;
 }
 .tableform{
-    margin: 30px;
+    margin: auto;
     text-align: center;
     border: solid 1px black;
 }
