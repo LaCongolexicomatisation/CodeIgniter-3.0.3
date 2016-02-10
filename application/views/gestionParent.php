@@ -3,22 +3,26 @@
         <h2>Les parents</h2>
         <table class="tableform">
             <thead>
+            <tr>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Ville</th>
             <th>Login</th>
             <th>Mot de passe</th>
             <th>Adresse mail</th>
+            <th>Téléphone</th>
+            </tr>
             </thead>
-            <?php print_r($parents);
+            <?php
             foreach ($parents as $p) { ?>
             <tr>
-                <td><?=$p['nom']?></td>
-                <td><?=$p['prenom']?></td>
-                <td><?=$p['nomVille']?></td>
-                <td><?=$p['login']?></td>
-                <td><?=$p['motDePasse']?></td>
-                <td><?=$p['adresseMail']?></td>
+                <td><?=$p->nom();?></td>
+                <td><?=$p->prenom();?></td>
+                <td><?=$p->idVille();?></td>
+                <td><?=$p->login();?></td>
+                <td><?=$p->password();?></td>
+                <td><?=$p->mail();?></td>
+                <td><?=$p->telephone();?></td>
             </tr>
             <?php } ?>
         </table>
