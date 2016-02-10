@@ -30,7 +30,7 @@ class Utilisateur extends CI_Model
 
     public function id()
     {
-        return $this->_id;
+        return $this->_idAdulteResponsable;
     }
 
     public function nom()
@@ -147,9 +147,9 @@ class Utilisateur extends CI_Model
         return $stmt->result_array();
     }
 
-    static function getById($id)
+    public static function getById($id)
     {
-        $stmt = SELF::$_PDO->query("SELECT * FROM adulte WHERE idAdulteResponsable=" . $id);
+        $stmt = SELF::$_PDO->query("SELECT * FROM adulte WHERE idAdulte=" . $id);
         if ($stmt->result()) {
             $data = $stmt->row_array();
             return new Utilisateur(
@@ -204,13 +204,6 @@ class Utilisateur extends CI_Model
             }
         }
         return $tab;
-    }
-
-    static function getVille($id)
-    {
-        $stmt = SELF::$_PDO->query("SELECT nomVille FROM ville WHERE idVille=" . $id);
-        $data = $stmt->row_array();
-        return $data['nomVille'];
     }
 
 

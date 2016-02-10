@@ -11,6 +11,7 @@
             <th>Mot de passe</th>
             <th>Adresse mail</th>
             <th>Téléphone</th>
+            <th colspan="2">Option</th>
             </tr>
             </thead>
             <?php
@@ -18,11 +19,13 @@
             <tr>
                 <td><?=$p->nom();?></td>
                 <td><?=$p->prenom();?></td>
-                <td><?=$p->idVille();?></td>
+                <td><?=Ville::getById($p->idVille())->nom();?></td>
                 <td><?=$p->login();?></td>
                 <td><?=$p->password();?></td>
                 <td><?=$p->mail();?></td>
                 <td><?=$p->telephone();?></td>
+                <td><a href="<?=base_url(); ?>index.php/gestionParent/modifParent?id=<?=$p->id();?>&action=modif"><img src="<?=base_url(); ?>assets/img/edit.png" alt="modif" name="modif"/></a>
+                    <a href="javascript:supprimerParent(<?= $p->id();?>,'<?=base_url()?>')"><img src="<?=base_url(); ?>assets/img/remove.png" alt="delete" name="delete"/></a></td>
             </tr>
             <?php } ?>
         </table>
