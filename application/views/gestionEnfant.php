@@ -20,10 +20,10 @@
             foreach ($enfants as $e) {
                 ?>
                 <tr>
-                    <td><?= $e['nomEnfant'] ?></td>
-                    <td><?= $e['prenomEnfant'] ?></td>
-                    <td><?= $e['dateDeNaissance'] ?></td>
-                    <td><?= $e['nomClasse'] ?></td>
+                    <td><?= $e->nom() ?></td>
+                    <td><?= $e->prenom() ?></td>
+                    <td><?= $e->ddn() ?></td>
+                    <td><?= $e->getClasse($e->id()) ?></td>
                     <td><a href="#">Infos</a></td>
                 </tr>
             <?php }

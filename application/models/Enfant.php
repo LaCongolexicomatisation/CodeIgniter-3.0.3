@@ -30,7 +30,11 @@ class Enfant extends CI_Model{
     function ddn() {
         return $this->_ddn;
     }
-
+    function getClasse($id){
+        $requete ="SELECT nomClasse FROM classe JOIN enfant ON classe.idClasse = enfant.idClasse WHERE enfant.idClasse= ?";
+        $stmt = SELF::$_PDO->query($requete, array($id));
+        return $stmt;
+    }
     function set_id($_id) {
         $this->_id = $_id;
     }
@@ -59,7 +63,7 @@ class Enfant extends CI_Model{
                 $data['idEnfant'],
                 $data['nomEnfant'],
                 $data['prenomEnfant'],
-                $data['DateDeNaissance']
+                $data['dateDeNaissance']
             );
         }
     }
