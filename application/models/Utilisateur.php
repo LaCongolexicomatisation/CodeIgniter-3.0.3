@@ -184,9 +184,26 @@ class Utilisateur extends CI_Model
             );
         }
     }
+
     static function getParents(){
-        $stmt = SELF::$_PDO->query("SELECT adulte.*, nomVille FROM adulte JOIN ville ON ville.idVille = adulte.idVille WHERE rang=0");
-        return $stmt;
+        $stmt = SELF::$_PDO->query("SELECT * from adulte where rang=1");
+        if($stmt->result()){
+            $tab=array();
+            foreach($stmt->result_array() as $data) {
+                $tab[] = new Utilisateur(
+                    $data['idAdulte'],
+                    $data['nom'],
+                    $data['prenom'],
+                    $data['idVille'],
+                    $data['login'],
+                    $data['motDePasse'],
+                    $data['adresseMail'],
+                    $data['telephone'],
+                    $data['rang']
+                );
+            }
+        }
+        return $tab;
     }
 
     static function getVille($id)
