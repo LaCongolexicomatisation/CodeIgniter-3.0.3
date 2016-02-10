@@ -53,6 +53,14 @@ class Enfant extends CI_Model{
     }
     public static function getEnfants(){
         $stmt = SELF::$_PDO->query("SELECT * FROM enfant");
-        return $stmt;
+        if ($stmt->result()) {
+            $data = $stmt->row_array();
+            return new Enfant(
+                $data['idEnfant'],
+                $data['nomEnfant'],
+                $data['prenomEnfant'],
+                $data['DateDeNaissance']
+            );
+        }
     }
 }
