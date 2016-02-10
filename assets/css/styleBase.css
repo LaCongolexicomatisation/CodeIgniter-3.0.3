@@ -144,12 +144,6 @@ label {
     text-align: left;
 }
 
-select#idTheme {
-    width: 30%;
-    display: inline-flex;
-
-}
-
 input {
     width: 60%;
     height: 30px;

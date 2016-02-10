@@ -10,11 +10,11 @@
                 <div class="main">
                     <div >
                         <label for="nom">Nom <em>*</em>:</label>
-                        <input type="text" placeholder="Nom" id="nom" name="nomParent" required autofocus/>
+                        <input type="text" placeholder="Nom" id="nom" name="nom" required autofocus/>
                     </div>
                     <div>
                         <label for="prenom">Prénom <em>*</em>:</label>
-                        <input type="text" placeholder="Prénom" id="prenom" name="prenomParent" required/>
+                        <input type="text" placeholder="Prénom" id="prenom" name="prenom" required/>
                     </div>
                     <div>
                         <label for="ville">Ville <em>*</em>: </label>
@@ -40,7 +40,6 @@
                         <label for="tel">Téléphone :</label>
                         <input type="text" placeholder="Téléphone" id="tel" name="tel">
                     </div>
-                    <br />
                 </div>
             </fieldset>
             <br/>

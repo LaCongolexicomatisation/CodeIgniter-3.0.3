@@ -32,18 +32,17 @@ class gestionParent extends CI_Controller
                 }
                 break;
             case 'POST':
-                if(isset($_POST) && isset($_POST["nomParent"]) && isset($_POST["prenomParent"]) && isset($_POST['idVille']) && isset($_POST['login'])&& isset($_POST['mdp'])&& isset($_POST['mail'])&& isset($_POST['telephone'])){
-                    $ok = Utilisateur::create($_POST['nomParent'],$_POST['prenomParent'],$_POST['idVille'],$_POST['login'],$_POST['mdp'],$_POST['mail'],$_POST['telephone']);
+                if(isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST['idVille']) && isset($_POST['login'])&& isset($_POST['mdp'])&& isset($_POST['mail'])&& isset($_POST['tel'])){
+                    $ok = Utilisateur::create($_POST['nom'],$_POST['prenom'],$_POST['idVille'],$_POST['login'],$_POST['mdp'],$_POST['mail'],$_POST['tel']);
                     if($ok)
                         $_SESSION['messages'] = "Création réussie";
                     else
                         $_SESSION['messagee'] = "Échec de la création";
-
-                    header('Location: '.base_url().'index.php/gestionParent/ajoutParent');
+                    header('Location: '.base_url().'index.php/gestionParent');
                     exit();
                 }else{
-                    $_SESSION['messagee'] = "Erreur d'accès à la page demandée";
-                    header('Location: ' . base_url());
+                    $_SESSION['messagee'] = "Il manque des infos";
+                    header('Location: '.base_url().'index.php/gestionParent/ajoutParent');
                     exit();
                 }
                 break;
@@ -66,6 +65,22 @@ class gestionParent extends CI_Controller
                 }
                 break;
             case 'POST':
+                $this->load->model("Utilisateur");
+                $this->load->model("Ville");
+                if(isset($_POST["id"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST['idVille']) && isset($_POST['login'])&& isset($_POST['mdp'])&& isset($_POST['mail'])&& isset($_POST['tel'])){
+                    $ok = Utilisateur::update($_POST['id'],$_POST['nom'],$_POST['prenom'],$_POST['idVille'],$_POST['login'],$_POST['mdp'],$_POST['mail'],$_POST['tel']);
+                    if($ok)
+                        $_SESSION['messages'] = "Modification réussie";
+                    else
+                        $_SESSION['messagee'] = "Échec de la modification";
+                    header('Location: '.base_url().'index.php/gestionParent');
+                    exit();
+                }else{
+                    $_SESSION['messagee'] = "Il manque des infos";
+                    header('Location: '.base_url().'index.php/gestionParent/ajoutParent');
+                    exit();
+                }
+                break;
         }
     }
 

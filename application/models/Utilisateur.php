@@ -120,10 +120,15 @@ class Utilisateur extends CI_Model
 
     public static function create($nom, $prenom, $idVille, $login, $motDePasse, $mail, $telephone)
     {
-        $rang = 1;
-        $requete = "INSERT INTO adulte (nom, prenom, idVille, login, motDePasse, adresseMail, telephone, rang) VALUES"
-            . " ( ?,?,?, ?, ?, ?, ?)";
-        $stmt = SELF::$_PDO->query($requete, array($nom, $prenom, $idVille, $login, $motDePasse, $mail, $telephone, $rang));
+        $requete = "INSERT INTO adulte (nom, prenom, idVille, login, motDePasse, adresseMail, telephone, rang) VALUES ('".$nom."','".$prenom."',".$idVille.",'".$login."','".$motDePasse."','".$mail."','".$telephone."', 1)";
+        $stmt = SELF::$_PDO->query($requete);
+        return $stmt;
+    }
+
+    public static function update($id,$nom, $prenom, $idVille, $login, $motDePasse, $mail, $telephone)
+    {
+        $requete = "update adulte set nom='".$nom."', prenom='".$prenom."', idVille=".$idVille.",login='".$login."',motDePasse='".$motDePasse."',adresseMail='".$mail."',telephone='".$telephone."' where idAdulte=".$id;
+        $stmt = SELF::$_PDO->query($requete);
         return $stmt;
     }
 

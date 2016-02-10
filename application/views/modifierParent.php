@@ -10,11 +10,11 @@
                 <div class="main">
                     <div >
                         <label for="nom">Nom <em>*</em>:</label>
-                        <input type="text" placeholder="Nom" id="nom" name="nomParent" value="<?=$parent->nom(); ?>" required autofocus/>
+                        <input type="text" placeholder="Nom" id="nom" name="nom" value="<?=$parent->nom(); ?>" required autofocus/>
                     </div>
                     <div>
                         <label for="prenom">Prénom <em>*</em>:</label>
-                        <input type="text" placeholder="Prénom" id="prenom" name="prenomParent" value="<?=$parent->prenom(); ?>" required/>
+                        <input type="text" placeholder="Prénom" id="prenom" name="prenom" value="<?=$parent->prenom(); ?>" required/>
                     </div>
                     <div>
                         <label for="ville">Ville <em>*</em>: </label>
@@ -40,6 +40,7 @@
                         <label for="tel">Téléphone :</label>
                         <input type="text" placeholder="Téléphone" id="tel" name="tel" value="<?=$parent->telephone(); ?>">
                     </div>
+                    <input type="hidden" id="id" name="id" value="<?=$parent->id(); ?>">
                 </div>
             </fieldset>
             <br/>
