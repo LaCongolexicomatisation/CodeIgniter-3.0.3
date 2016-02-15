@@ -96,6 +96,14 @@ form#ajActiviteAgenda{
     width: 70%;
     max-width: 600px;
 }
+form#ajParent {
+    width: 70%;
+    max-width: 600px;
+}
+form#ajParent div{
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
 legend {
     border-left: solid 1px #171616;
     border-right: solid 1px #171616;
@@ -206,13 +214,7 @@ div#dMdp input[type=password] {
     border-radius: 0 0 10px 10px;
 }
 
-div#groupeNomEnfant input {
-    border-radius: 10px 10px 0 0;
-}
 
-div#groupeDdnEnfant input {
-    border-radius: 0 0 10px 10px;
-}
 
 /*AFFICHAGE ENFANT*/
 table {
@@ -238,9 +240,7 @@ a.btLien {
 a.btLien:hover{
     background-color: rgb(32,127,183);
 }
-a#btAjEnfant:hover {
-    background-color: rgb(32,127,183);
-}
+
 
 /*compte*/
 section#infos {
