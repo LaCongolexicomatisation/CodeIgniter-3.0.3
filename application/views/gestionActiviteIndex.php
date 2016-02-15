@@ -4,7 +4,7 @@
     <thead>
         <td><a href="<?= base_url(); ?>index.php/agendaActivite/gestion">G&eacuterer l'agenda des activit&eacutes</a></td>
         <td><a href='<?= base_url(); ?>index.php/activites/gestionActivites'>Activit&eacutes</a></td>
-        <td><a href="#">Themes</a></td>
+        <td><a href='<?= base_url(); ?>index.php/activites/gestionThemes'>Themes</a></td>
         <td><a href="#">Tarifs</a></td>
     </thead>
     <tbody>

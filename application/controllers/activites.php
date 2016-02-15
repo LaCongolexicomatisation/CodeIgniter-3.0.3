@@ -78,4 +78,15 @@ class activites extends CI_Controller{
         $data['listAgenda']= Agenda::getAll();
         $this->load->view("gestionAgendaActivite",$data);
     }
+    public function gestionThemes(){
+        $this->load->model("Theme");
+        $data['themes'] = Theme::getAll();
+        $this->load->view("gestionThemes",$data);
+    }
+    public function ajoutTheme(){
+
+    }
+    public function modifierTheme(){
+
+    }
 }
