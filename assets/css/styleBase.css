@@ -401,7 +401,7 @@ table {
 .tableform{
     margin: auto;
     text-align: center;
-    border: solid 1px black;
+
 }
 .tableform thead{
     background-color: rgb(242,242,242);
