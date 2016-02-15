@@ -17,8 +17,6 @@ class AgendaActivite extends CI_Controller{
         $data['semaines'] = $semaines;
         $this->load->view("gestionAgendaActivite",$data);
     }
-    
-   
 
     public function insert($param){
         switch($_SERVER['REQUEST_METHOD']){
@@ -40,7 +38,7 @@ class AgendaActivite extends CI_Controller{
                     $data['activites'] = $activites;
                     $this->load->view("ajoutActiviteAgenda", $data);
                 }else{
-                    $_SESSION['messagee'] = "Erreur, accès refusé";
+                    $_SESSION['messagee'] = "Erreur, accÃ¨s refusÃ©";
                     header('Location: ' . BASEURL);
                     exit();
                 }

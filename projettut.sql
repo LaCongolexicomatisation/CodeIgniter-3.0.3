@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 03 Février 2016 à 15:26
+-- Généré le :  Lun 15 Février 2016 à 10:43
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -73,8 +73,8 @@ CREATE TABLE IF NOT EXISTS `adulte` (
 
 INSERT INTO `adulte` (`idAdulte`, `nom`, `prenom`, `idVille`, `login`, `motDePasse`, `adresseMail`, `rang`, `telephone`) VALUES
 (1, 'admin', 'admin', 1, 'admin', 'admin', 'adresse@hotmail.fr', 0, 0),
-(2, 'nomParent1', 'prenomParent1', 1, 'user1', 'user1', 'user1@hotmail.fr', NULL, 306298546),
-(3, 'nomParent2', 'prenomParent2', 1, 'user2', 'user2', 'user2@gmail.com', 0, 632154695);
+(2, 'nomParent1', 'prenomParent1', 1, 'user1', 'user1', 'user1@hotmail.fr', 1, 306298546),
+(3, 'nomParent2', 'prenomParent2', 1, 'user2', 'user2', 'user2@gmail.com', 1, 632154695);
 
 -- --------------------------------------------------------
 
@@ -132,19 +132,20 @@ INSERT INTO `autorisemodif` (`idAdulteResponsable`, `idEnfant`) VALUES
 DROP TABLE IF EXISTS `classe`;
 CREATE TABLE IF NOT EXISTS `classe` (
   `idClasse` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(45) DEFAULT NULL,
+  `nomClasse` varchar(45) DEFAULT NULL,
   `professeur` varchar(45) DEFAULT NULL,
-  `idNiveau` int(11) NOT NULL,
-  PRIMARY KEY (`idClasse`,`idNiveau`),
-  KEY `fk_classe_niveau1_idx` (`idNiveau`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `niveau` varchar(10) NOT NULL,
+  `profRespClasse` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`idClasse`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `classe`
 --
 
-INSERT INTO `classe` (`idClasse`, `nom`, `professeur`, `idNiveau`) VALUES
-(1, 'CP1', 'Deshinkel', 1);
+INSERT INTO `classe` (`idClasse`, `nomClasse`, `professeur`, `niveau`, `profRespClasse`) VALUES
+(1, 'CP1', 'Martin', 'CP', 1),
+(2, 'CM1-1', 'Bernard', 'CM1', 0);
 
 -- --------------------------------------------------------
 
@@ -195,28 +196,6 @@ CREATE TABLE IF NOT EXISTS `inscription` (
 
 INSERT INTO `inscription` (`idEnfant`, `idActivite`, `dateDebutInscription`, `dateFinInscription`, `valideInscription`) VALUES
 (1, 1, '2015-11-23 08:00:00', '0215-11-23 09:00:00', 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `niveau`
---
-
-DROP TABLE IF EXISTS `niveau`;
-CREATE TABLE IF NOT EXISTS `niveau` (
-  `idNiveau` int(11) NOT NULL AUTO_INCREMENT,
-  `niveau` varchar(45) DEFAULT NULL,
-  `Enseignant` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idNiveau`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Contenu de la table `niveau`
---
-
-INSERT INTO `niveau` (`idNiveau`, `niveau`, `Enseignant`) VALUES
-(1, 'CP', 'Mme Martin'),
-(2, 'CE1', 'M Bernard');
 
 -- --------------------------------------------------------
 
@@ -311,12 +290,6 @@ ALTER TABLE `agenda`
 ALTER TABLE `autorisemodif`
   ADD CONSTRAINT `fk_Enfant_has_AdulteResponsable_AdulteResponsable1` FOREIGN KEY (`idAdulteResponsable`) REFERENCES `adulte` (`idAdulte`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Enfant_has_AdulteResponsable_Enfant1` FOREIGN KEY (`idEnfant`) REFERENCES `enfant` (`idEnfant`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `classe`
---
-ALTER TABLE `classe`
-  ADD CONSTRAINT `fk_classe_niveau1` FOREIGN KEY (`idNiveau`) REFERENCES `niveau` (`idNiveau`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `enfant`

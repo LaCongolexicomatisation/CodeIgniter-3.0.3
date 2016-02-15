@@ -5,14 +5,16 @@ class Enfant extends CI_Model{
     protected $_nom;
     protected $_prenom;
     protected $_ddn;
+    protected $_idClasse;
     protected static $_PDO;
     
-    public function __construct($id = NULL, $nom = "", $prenom = "", $ddn = ""){
-        $this->set_id($id);
-        $this->set_nom($nom);
-        $this->set_prenom($prenom);
-        $this->set_ddn($ddn);
+    public function __construct($id = NULL, $nom = "", $prenom = "", $ddn = "", $idClasse = ""){
         SELF::$_PDO = $this->load->database('pdo', true);
+        $this->_id = $id;
+        $this->_nom = $nom;
+        $this->_prenom = $prenom;
+        $this->_ddn = $ddn;
+        $this->_idClasse = $idClasse;
     }
     
     function id() {
@@ -50,7 +52,18 @@ class Enfant extends CI_Model{
     function set_ddn($_ddn) {
         $this->_ddn = $_ddn;
     }
+    public function idClasse()
+    {
+        return $this->_idClasse;
+    }
 
+    /**
+     * @param string $idClasse
+     */
+    public function setIdClasse($idClasse)
+    {
+        $this->_idClasse = $idClasse;
+    }
     public static function create($nom,$prenom,$ddn){
         $stmt = SELF::$_PDO->query("insert into enfant (nomEnfant, prenomEnfant, dateDeNaissance) values ('".$nom."','".$prenom."',STR_TO_DATE('".$ddn."', '%Y-%m-%d'))");
         return $stmt;
@@ -58,13 +71,22 @@ class Enfant extends CI_Model{
     public static function getEnfants(){
         $stmt = SELF::$_PDO->query("SELECT * FROM enfant");
         if ($stmt->result()) {
-            $data = $stmt->row_array();
-            return new Enfant(
-                $data['idEnfant'],
-                $data['nomEnfant'],
-                $data['prenomEnfant'],
-                $data['dateDeNaissance']
-            );
+            $tab = array();
+            foreach($stmt->result_array() as $data){
+                $tab[] = new Enfant(
+                    $data['idEnfant'],
+                    $data['nomEnfant'],
+                    $data['prenomEnfant'],
+                    $data['dateDeNaissance'],
+                    $data['idClasse']
+                );
+            }
+            return $tab;
         }
     }
+
+    /**
+     * @return string
+     */
+
 }

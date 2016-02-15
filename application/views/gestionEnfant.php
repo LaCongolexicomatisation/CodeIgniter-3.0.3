@@ -7,15 +7,8 @@
             <th>Prénom</th>
             <th>Date de naissance</th>
             <th>Classe</th>
-            <th>Infos</th>
+            <th>Options</th>
             </thead>
-            <tr>
-                <td>Heinrich</td>
-                <td>Schmidt</td>
-                <td>DDN</td>
-                <td>CP</td>
-                <td><a href="enfant.html">info</a></td>
-            </tr>
             <?php
             foreach ($enfants as $e) {
                 ?>
@@ -23,8 +16,12 @@
                     <td><?= $e->nom() ?></td>
                     <td><?= $e->prenom() ?></td>
                     <td><?= $e->ddn() ?></td>
-                    <td><?= $e->getClasse($e->id()) ?></td>
-                    <td><a href="#">Infos</a></td>
+                    <td><?= Classe::getById($e->idClasse())->nomClasse() ?></td>
+                    <td>
+                        <a href="<?= base_url(); ?>index.php/gestionEnfant/modifEnfant?id=<?= $e->id(); ?>&action=modif"><img
+                                src="<?= base_url(); ?>assets/img/edit.png" alt="modif" name="modif"/></a>
+                        <a href="javascript:supprimerEnfant(<?= $e->id(); ?>,'<?= base_url() ?>')"><img
+                                src="<?= base_url(); ?>assets/img/remove.png" alt="delete" name="delete"/></a></td>
                 </tr>
             <?php }
             ?>

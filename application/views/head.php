@@ -36,7 +36,7 @@
 </header>
 <?php
         if(isset($_SESSION['messagee'])){
-            print("<div id='messageError'>".$_SESSION['messagee']."</div>");
+            print("<div id='messageError'>".$_SESSION['messages']."</div>");
             unset($_SESSION['messagee']);
         }
         if(isset($_SESSION['messages'])){
