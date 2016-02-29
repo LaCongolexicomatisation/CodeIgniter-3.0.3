@@ -116,3 +116,20 @@ function supprimerActivite(id,nom,baseUrl){
             });
 	}
 }
+
+function supprimerParent(id,nom,baseUrl){
+    if(confirm('Voulez vous vraiment supprimer l\'utilisateur '+nom))
+    {
+        $.ajax({
+            type: "POST",
+            data: {idSuppUtilisateur: id},
+            url: baseUrl + "index.php/gestionParent/suppParent",
+            success: function(output) {
+                window.location = baseUrl + 'index.php/activites/gestionActivites';
+            },
+            error:function(error){
+                console.log(error.responseText);
+            }
+        });
+    }
+}

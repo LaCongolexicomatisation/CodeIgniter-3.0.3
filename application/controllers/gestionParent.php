@@ -84,4 +84,9 @@ class gestionParent extends CI_Controller
         }
     }
 
+    public function suppParent(){
+        $this->load->model("Activite");
+        Activite::delete($_POST['idSuppActivite']);
+    }
+
 }
