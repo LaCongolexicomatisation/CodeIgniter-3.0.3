@@ -70,4 +70,19 @@ class Agenda extends CI_Model
         }
         return $tab;
     }
+
+    public static function getById($id){
+        $stmt = SELF::$_PDO->query("SELECT * FROM inscription where valideInscription=1 and idEnfant=".$id);
+        if($stmt->result()){
+            $data=$stmt->result_array()[0];
+            $obj = new stdClass();
+            $obj->idEnfant=$data['idEnfant'];
+            $obj->idActivite=$data['idActivite'];
+            $obj->dateDebutInscription=$data['dateDebutInscription'];
+            $obj->dateFinInscription=$data['dateFinInscription'];
+            $obj->valideInscription=$data['valideInscription'];
+            return $obj;
+        }
+        return null;
+    }
 }

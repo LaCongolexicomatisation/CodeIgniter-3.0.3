@@ -3,11 +3,13 @@
         <h2>Les enfants</h2>
         <table class="tableform">
             <thead>
+            <tr>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Date de naissance</th>
             <th>Classe</th>
             <th>Options</th>
+            </tr>
             </thead>
             <?php
             foreach ($enfants as $e) {

@@ -83,10 +83,25 @@ class Enfant extends CI_Model{
             }
             return $tab;
         }
+        return null;
     }
 
-    /**
-     * @return string
-     */
+    public static function getEnfantByUser($id){
+        $stmt = SELF::$_PDO->query("SELECT * FROM enfant left join autoriseModif on enfant.idEnfant=autoriseModif.idEnfant where autoriseModif.idAdulteResponsable=".$id);
+        if($stmt->result()){
+            $tab=array();
+            foreach($stmt->result_array() as $data) {
+                $tab[]=new Enfant(
+                    $data['idEnfant'],
+                    $data['nomEnfant'],
+                    $data['prenomEnfant'],
+                    $data['dateDeNaissance'],
+                    $data['idClasse']
+                );
+            }
+            return $tab;
+        }
+    }
+
 
 }
