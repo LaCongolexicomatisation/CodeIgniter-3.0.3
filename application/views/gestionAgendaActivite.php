@@ -34,8 +34,26 @@ include "head.php";
                     <?= $horaires[0][$i] ?>
                 </th>
               <?php  foreach($joursSemaine as $param => $jour){ ?>
+
                     <td>
-                        <a href="insert/<?php echo $param.$horaires[1][$i] ?>" class="hrefAgenda">+</a>
+                        <?php
+                        $x=false;
+                        foreach($listAgenda as $a)
+                        {
+                            if(in_array($param.$horaires[1][$i],$test)){
+                                $x=true;
+                                $activite=$a->idActivite();
+                            }
+                        }
+                        if($x)
+                        {
+                            echo "Activite ".$activite;
+                            //echo $annee.$mois.$jour.substr(($listAgenda[2]->horaireDebutActivite()),0, 2) . substr(($listAgenda[2]->horaireFinActivite()),0, 2)." ".$param.$horaires[1][$i];
+                        }
+                        else{?>
+                            <a href="insert/<?php echo $param.$horaires[1][$i] ?>" class="hrefAgenda">+</a>
+                        <?php } ?>
+
                     </td>
               <?php } ?>
             </tr>
@@ -43,6 +61,8 @@ include "head.php";
             <?php } ?>
     </table>
     <?php } ?>
+<!--    --><?php //var_dump($test);?>
+
 </div>
 
 

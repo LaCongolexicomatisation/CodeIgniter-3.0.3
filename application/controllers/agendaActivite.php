@@ -13,8 +13,30 @@ class AgendaActivite extends CI_Controller{
         $this->load->helper("Date_helper");
         $semaines = week2period(date("Y"), date("W"));
         $this->load->model("Agenda");
-        $data['listAgenda']= Agenda::getAll();
+        $x=Agenda::getAll();
+        $data['listAgenda']= $x;
+        $tab=[];
+        foreach($x as $y){
+            $z=true;
+            $date=date('d-m-Y', strtotime($y->dateDebutActivite()));
+            $dateFin=date('d-m-Y', strtotime($y->dateFinActivite()));
+            while($z==true){
+                if($date==$dateFin){
+                    $z=false;
+                }
+                $p=new \DateTime($date);
+                if($p->format('N')==$y->jour())
+                    $tab[]=str_replace('-','',$date).substr(($y->horaireDebutActivite()),0, 2) . substr(($y->horaireFinActivite()),0, 2);
+                //jddayofweek(gregoriantojd($mois,$jour,$annee));
+                $date=date('d-m-Y', strtotime($date. ' + 1 days'));
+            }
+//            $tab[]=$date;
+//            $date=date('d-m-Y', strtotime($date. ' + 1 days'));
+//            $tab[]=$date;
+//            $tab[]=$dateFin;
+        }
         $data['semaines'] = $semaines;
+        $data['test']=$tab;
         $this->load->view("gestionAgendaActivite",$data);
     }
 
@@ -56,7 +78,6 @@ class AgendaActivite extends CI_Controller{
                     $heureMinuteSecondeFin = preg_split('/h/', $hFin);
                     $heureDebut = $heureMinuteSecondeDebut[1] != "" ? $heureMinuteSecondeDebut[0].':'.$heureMinuteSecondeDebut[1].':00'
                                                                         : $heureMinuteSecondeDebut[0].':00:00';
-                    
                     $heureFin = $heureMinuteSecondeFin[1] != "" ? $heureMinuteSecondeFin[0].':'.$heureMinuteSecondeFin[1].':00'
                                                                         : $heureMinuteSecondeFin[0].':00:00';
                     $idActivite = $_POST['activite'];

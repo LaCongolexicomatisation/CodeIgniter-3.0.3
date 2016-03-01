@@ -10,7 +10,7 @@ class Agenda extends CI_Model
     protected $_horaireFinActivite;
     protected static $_PDO;
 
-    public function __construct($idActivite=null,$dateDebutActivite="",$dateFinActivite="",$jour=null,$horaireDebutActivite="",$horaireFinActivite="", $idAgenda=null){
+    public function __construct($idAgenda=null,$idActivite=null,$dateDebutActivite="",$dateFinActivite="",$jour=null,$horaireDebutActivite="",$horaireFinActivite=""){
         $this->_idAgenda=$idAgenda;
         $this->_idActivite=$idActivite;
         $this->_dateDebutActivite=$dateDebutActivite;
