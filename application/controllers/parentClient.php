@@ -16,7 +16,6 @@ class parentClient extends CI_Controller
     public function inscriptionActivite(){
         $this->load->model("Activite");
         $this->load->model("Enfant");
-
         $data['nomEnfant'] = "";
         $data['prenomEnfant'] = "";
         $this->load->helper("Date_helper");

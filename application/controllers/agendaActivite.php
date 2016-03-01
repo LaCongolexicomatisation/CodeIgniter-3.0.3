@@ -16,19 +16,19 @@ class AgendaActivite extends CI_Controller{
         $x=Agenda::getAll();
         $data['listAgenda']= $x;
         $tab=[];
-        foreach($x as $y){
+        foreach($x as $y){ // Pour chaque ligne de la table agenda
             $z=true;
             $date=date('d-m-Y', strtotime($y->dateDebutActivite()));
             $dateFin=date('d-m-Y', strtotime($y->dateFinActivite()));
-            while($z==true){
+            while($z==true){  /// tant que les deux dates ne sont pas égales
                 if($date==$dateFin){
                     $z=false;
                 }
                 $p=new \DateTime($date);
                 if($p->format('N')==$y->jour())
-                    $tab[]=str_replace('-','',$date).substr(($y->horaireDebutActivite()),0, 2) . substr(($y->horaireFinActivite()),0, 2);
+                    $tab[]=str_replace('-','',$date).substr(($y->horaireDebutActivite()),0, 2) . substr(($y->horaireFinActivite()),0, 2); //date sous format 311220160809 -> 31-12-2016-08h-09h
                 //jddayofweek(gregoriantojd($mois,$jour,$annee));
-                $date=date('d-m-Y', strtotime($date. ' + 1 days'));
+                $date=date('d-m-Y', strtotime($date. ' + 1 days'));     // On incrémente le jour
             }
 //            $tab[]=$date;
 //            $date=date('d-m-Y', strtotime($date. ' + 1 days'));
@@ -82,7 +82,7 @@ class AgendaActivite extends CI_Controller{
                                                                         : $heureMinuteSecondeFin[0].':00:00';
                     $idActivite = $_POST['activite'];
                     $jour = $dateDebut->format('N');
-                    $ajoutActivite = new Agenda($idActivite, $dateDebut->format("Y-m-d H:i:s"), $dateFin->format("Y-m-d H:i:s"), $jour, $heureDebut, $heureFin);
+                    $ajoutActivite = new Agenda(null,$idActivite, $dateDebut->format("Y-m-d H:i:s"), $dateFin->format("Y-m-d H:i:s"), $jour, $heureDebut, $heureFin);
                     $ajoutActivite->create();
                     header('Location: '. base_url().'/index.php/agendaActivite/gestion');
                     exit();
