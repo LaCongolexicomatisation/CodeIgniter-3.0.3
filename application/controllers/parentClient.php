@@ -9,7 +9,7 @@ class parentClient extends CI_Controller
         $data['user']['prenom'] = $user->prenom();
         $data['user']['adresseMail'] = $user->mail();
         $data['user']['telephone'] = $user->telephone();
-        $data['user']['ville'] = $user->getVille($user->idVille());
+        $data['user']['ville'] = $user->idVille();
         $this->load->view('informationsParent',$data);
     }
 

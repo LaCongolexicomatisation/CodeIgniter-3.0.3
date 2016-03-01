@@ -16,7 +16,7 @@
                     <td><?= $e->nom() ?></td>
                     <td><?= $e->prenom() ?></td>
                     <td><?= $e->ddn() ?></td>
-                    <td><?= Classe::getById($e->idClasse())->nomClasse() ?></td>
+                    <td><?= $e->idClasse() ?></td>
                     <td>
                         <a href="<?= base_url(); ?>index.php/gestionEnfant/modifEnfant?id=<?= $e->id(); ?>&action=modif"><img
                                 src="<?= base_url(); ?>assets/img/edit.png" alt="modif" name="modif"/></a>
